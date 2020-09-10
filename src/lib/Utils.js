@@ -11,7 +11,7 @@ export const monthsOfYear = (locale='en-US') => {
   window.months = window.months || [...Array(12)].map((_, i) => {
     // Get a date object set to the i-th month.
     const baseDate = new Date(2017, i, 1);
-    
+
     // Get full name of this month.
     return baseDate.toLocaleDateString(locale, { month: 'long' });
   });
@@ -30,7 +30,7 @@ export const getMonthHeaderTemplate = (locale='en-US') => {
   window.days = window.days || [...Array(7)].map((_, i) => {
     // Get a date object set to i+[random sunday offset]th day.
     const baseDate = new Date(Date.UTC(2017, 0, i + 2));
-    
+
     // Get full name of this day.
     const dayName = baseDate.toLocaleDateString(locale, { weekday: 'long' });
 
@@ -52,18 +52,18 @@ export const getMonthTemplate = (month, year) => {
   const numDaysInMonth = daysInMonth(month, year);
   // Days between Sunday and start of month.
   const offset = (new Date(year, month - 1, 1)).getDay() + 1;
-  
+
   // Fill in array with days of month.
   const monthTemplate = [...Array(numDaysInMonth)]
     .map((_, i) => ({
       date: new Date(year, month - 1, i + 1),
       style: {
         msGridRow: Math.ceil((offset + i) / 7),
-        msGridColumn: (((offset - 1) + i) % 7) + 1,
+        msGridColumn: ((((offset - 1) + i) % 7) + 1).toString(),
         gridRowStart: Math.ceil((offset + i) / 7),
-        gridColumnStart: (((offset - 1) + i) % 7) + 1
+        gridColumnStart: ((((offset - 1) + i) % 7) + 1).toString()
       }
     }));
-  
+
   return monthTemplate;
 };

@@ -1,6 +1,6 @@
 {
   "name": "recal",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A minimal, accessible React calendar component using modern CSS.",
   "main": "lib/index.cjs.js",
   "module": "lib/index.esm.js",
@@ -24,7 +24,8 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "date-fns": "^1.29.0"
+    "date-fns": "^1.29.0",
+    "rollup": "^2.26.5"
   },
   "peerDependencies": {
     "react": "^15.3.0 || ^16",
